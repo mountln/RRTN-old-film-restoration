@@ -31,10 +31,10 @@ raft-sintel.pth](https://github.com/mountln/RRTN-old-film-restoration/releases/d
 
 1. (Optional) Remove duplicate frames. This step is optional, but some old films downloaded from the Internet may contain duplicate frames. Removing these duplicate frames can sometimes improve the results. You can use `ffmpeg` to do this by referring to [here](https://stackoverflow.com/questions/37088517/remove-sequentially-duplicate-frames-when-using-ffmpeg). There are also other methods available for removing duplicate frames.
 
-1. Prepare the video to be processed by following the directory structure shown in `test_data/`. The folder structure should be as follows:
+1. Prepare the video to be processed by following the directory structure shown in `test_data_sample/`. The folder structure should be as follows:
 
     ```
-    test_data
+    test_data_sample
     ├── video_1
     │   ├── 00001.png
     │   ├── 00002.png
@@ -48,10 +48,10 @@ raft-sintel.pth](https://github.com/mountln/RRTN-old-film-restoration/releases/d
         └── xxxxx.png
     ```
 
-1. Run `restore.py` to restore the videos. For example, to restore videos in the `test_data/` folder, use the following command:
+1. Run `restore.py` to restore the videos. For example, to restore videos in the `test_data_sample/` folder, use the following command:
 
     ```bash
-    python VP_code/restore.py --name rrtn --model_name rrtn --model_path_first pretrained_models/rrtn_128_first.pth --model_path_second pretrained_models/rrtn_128_second.pth --temporal_length 30 --temporal_stride 15 --input_video_url test_data/
+    python VP_code/restore.py --name rrtn --model_name rrtn --model_path_first pretrained_models/rrtn_128_first.pth --model_path_second pretrained_models/rrtn_128_second.pth --temporal_length 30 --temporal_stride 15 --input_video_url test_data_sample/
     ```
 
     If GPU memory is not enough, try reducing `temporal_length`, `temporal_stride`, or the resolution of the input video.
