@@ -1,0 +1,81 @@
+seed: 2021
+distributed: True
+train_visualization_iter: 1000
+
+datasets:
+  train:
+    name: REDS
+    type: Film_dataset_1
+    dataroot_gt: /path/to/REDS/train_sharp
+    dataroot_lq: /path/to/REDS/train_sharp
+
+    is_train: true
+    num_frame: 7
+    channels: 1
+    gt_size: [128,128]
+    scale: 1
+    interval_list: [1]
+    random_reverse: false
+    use_flip: true
+    use_rot: true
+
+    use_shuffle: true
+    num_worker_per_gpu: 20
+    batch_size_per_gpu: 1
+
+    normalizing: true
+    texture_template: /path/to/noise_data
+  val:
+    name: REDS4
+    type: Film_dataset_1
+    dataroot_gt: /path/to/test_degraded_frames
+    dataroot_lq: /path/to/test_degraded_frames
+
+    is_train: false
+    num_frame: 10
+    channels: 1
+    gt_size: [640,368]
+    scale: 1
+    interval_list: [1]
+    random_reverse: false
+    use_flip: false
+    use_rot: false
+
+    normalizing: true
+    texture_template: /path/to/noise_data
+
+path:
+  pretrain_network_g: ~
+  strict_load_g: false
+  resume_state: ~
+
+trainer:
+  lr: 0.0002
+  flow_lr_mul: 0.125
+  gan_lr: 0.0002
+  beta1: 0.9
+  beta2: 0.99
+
+  G_adv_loss_weight: 0.01
+  D_adv_loss_weight: 1.0
+  pix_loss_weight: 1.0
+  perceptual_loss_weight: 1.0
+
+  nepoch_steady: 10
+  nepoch_decay: 10
+
+logger:
+  print_freq: 100
+  save_checkpoint_freq: !!float 5e3
+  use_tb_logger: false
+
+val:
+  val_freq: !!float 1e4
+  val_frame_num: 15
+  save_img: true
+
+  metrics:
+    psnr:
+      type: calculate_psnr
+    ssim:
+      type: calculate_ssim
