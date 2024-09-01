@@ -12,6 +12,7 @@ For more details, please refer to the papers of these studies.
 
     ```bash
     git clone https://github.com/mountln/RRTN-old-film-restoration.git
+    cd RRTN-old-film-restoration
     ```
 
 1. Install the required dependencies:
@@ -23,6 +24,12 @@ For more details, please refer to the papers of these studies.
     ```
 
 ### Restore Old Films
+
+1. Create the `pretrained_models/` folder.
+
+    ```bash
+    mkdir pretrained_models
+    ```
 
 1. Download the pretrained models ([
 rrtn_128_first.pth](https://github.com/mountln/RRTN-old-film-restoration/releases/download/latest/rrtn_128_first.pth), [
