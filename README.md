@@ -51,7 +51,7 @@ raft-sintel.pth](https://github.com/mountln/RRTN-old-film-restoration/releases/d
 1. Run `restore.py` to restore the videos. For example, to restore videos in the `test_data_sample/` folder, use the following command:
 
     ```bash
-    python VP_code/restore.py --name rrtn --model_name rrtn --model_path_first pretrained_models/rrtn_128_first.pth --model_path_second pretrained_models/rrtn_128_second.pth --temporal_length 30 --temporal_stride 15 --input_video_url test_data_sample/
+    python VP_code/restore.py --name rrtn --model_name rrtn --model_path_first pretrained_models/rrtn_128_first.pth --model_path_second pretrained_models/rrtn_128_second.pth --temporal_length 30 --temporal_stride 15 --input_video_url test_data_sample
     ```
 
     If GPU memory is not enough, try reducing `temporal_length`, `temporal_stride`, or the resolution of the input video.
