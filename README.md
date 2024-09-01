@@ -17,7 +17,7 @@ For more details, please refer to the papers of these studies.
 1. Install the required dependencies:
 
     ```bash
-    conda create -f environment.yml
+    conda env create -f environment.yml
     conda activate rrtn
     mim install mmcv  # install mmcv
     ```
